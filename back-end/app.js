@@ -26,7 +26,7 @@ app.use('/payment', paymentRouter)
 
 app.use('/back-end/uploads', express.static("back-end/uploads"))
 
-app.use(express.static(path.join(__dirname, 'front-end/build')))
+app.use(express.static(path.join(__dirname, '/front-end/build')))
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'front-end', 'build', 'index.html'))

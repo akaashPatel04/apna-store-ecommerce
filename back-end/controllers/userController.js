@@ -96,7 +96,7 @@ export const updateProfile = async (req, res) => {
             {
                 email: req.body.email || req.user.email,
                 name: req.body.name || req.user.name,
-                avatar: avatar.path || req.user.avatar,
+                avatar: avatar?.path || req.user.avatar,
                 password: req.user.password
             }
             , { new: true })
