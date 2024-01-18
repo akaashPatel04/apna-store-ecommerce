@@ -1,0 +1,109 @@
+.shippingPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+}
+
+.shippingPage>.container {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    width: 35%;
+    background: #fff;
+}
+
+.shippingPage>.container>.shippingHeading {
+    margin: 2vmax auto;
+    text-align: center;
+    font-size: 1.75vmax;
+    color: #666666;
+    width: 20vmax;
+    border-bottom: 2px solid #808080;
+    padding-bottom: .5vmax;
+}
+
+.container>form>div {
+    width: 90%;
+    margin: 1.5vmax auto;
+}
+
+.container>form>div>input,
+.container>form>div>select {
+    padding: 0.65vmax 2vmax;
+    border: 1px solid rgb(211, 211, 211);
+    outline: none;
+    width: 100%;
+    font-size: 1.15vmax;
+    font-family: cursive;
+}
+
+.container>form>div>input[type='button'] {
+    background-color: tomato;
+    color: #fff;
+    border: none;
+    font-family: sans-serif;
+}
+
+.container>form>div>input[type='button']:hover {
+    background-color: rgb(255, 79, 48);
+    cursor: pointer;
+}
+
+
+@media (max-width:1050px) {
+    .shippingPage>.container {
+        height: 95%;
+        width: 55%;
+    }
+
+    .shippingPage .container .shippingHeading {
+        margin: 2vmax auto;
+        font-size: 2.5vmax;
+    }
+
+    .container>form>div {
+        width: 90%;
+        margin: 1.5vmax auto;
+    }
+
+    .container>form>div>input,
+    .container>form>div>select {
+        padding: 1vmax 2vmax;
+        font-size: 1.5vmax;
+    }
+
+
+}
+
+@media (max-width:600px) {
+    .shippingPage>.container {
+        height: 95%;
+        width: 95%;
+    }
+
+    .shippingPage>.container>.shippingHeading {
+        margin: 2vmax auto;
+        text-align: center;
+        font-size: 3vmax;
+        color: #666666;
+        padding-bottom: .75vmax;
+    }
+
+    .container>form>div {
+        width: 90%;
+        margin: 2.5vmax auto;
+    }
+
+    .container>form>div>input,
+    .container>form>div>select {
+        padding: 1.5vmax 2vmax;
+        font-size: 2vmax;
+    }
+}

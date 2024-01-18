@@ -1,0 +1,169 @@
+.orderDetailsPage {
+    background-color: white;
+}
+
+.orderDetailsContainer>.h1 {
+    font: 300 3vmax sans-serif;
+    margin: 4vmax 0;
+    color: tomato;
+}
+
+.orderDetailsContainer {
+    padding: 5vmax;
+    padding-bottom: 0%;
+}
+
+.orderDetailsContainer>p {
+    font: 400 2.1vmax sans-serif;
+}
+
+.orderDetailsContainerBox,
+.orderDetailsCartItemsContainer {
+    margin: 2vmax;
+}
+
+.orderDetailsContainerBox>div {
+    display: flex;
+    margin: 1vmax 0;
+}
+
+.orderDetailsContainerBox>div>p {
+    font: 500 1.4vmax sans-serif;
+    color: black;
+}
+
+.orderDetailsContainerBox>div>span {
+    margin: 0 1vmax;
+    font: 300 1.4vmax sans-serif;
+    color: #757575;
+}
+
+.orderDetailsCartItems>p {
+    font: 400 2.1vmax sans-serif;
+}
+
+.orderDetailsCartItems {
+    padding: 2.5vmax 5vmax;
+    border-top: 1px solid rgba(0, 0, 0, 0.164);
+}
+
+.orderDetailsCartItemsContainer>div {
+    display: flex;
+    justify-content: space-between;
+    font: 400 1.5vmax sans-serif;
+    align-items: center;
+    margin: 1.4vmax 0;
+    width: 80%;
+    padding: 1vmax 3vmax;
+    background-color: #e6e6e6;
+}
+
+
+.orderDetailsCartItemsContainer>div>a {
+    display: flex;
+    align-items: center;
+    gap: 4vmax;
+    color: #575757;
+    width: 45%;
+    text-decoration: none;
+    font-family: cursive;
+}
+
+.orderDetailsCartItemsContainer>div>a>img {
+    width: 6vmax;
+}
+
+.orderDetailsCartItemsContainer>div>span {
+    font: 100 1.5vmax sans-serif;
+    color: #5e5e5e;
+}
+
+@media screen and (max-width: 1025px) {
+    .orderDetailsContainer>p {
+        font: 400 4vw sans-serif;
+    }
+
+    .orderDetailsContainerBox>div {
+        margin: 3vw 0;
+    }
+
+    .orderDetailsContainerBox>div>p {
+        font: 400 2.5vw sans-serif;
+    }
+
+    .orderDetailsContainerBox>div>span {
+        font: 100 2vw sans-serif;
+    }
+
+    .orderDetailsCartItems>p {
+        font: 400 4vw sans-serif;
+    }
+
+    .orderDetailsCartItemsContainer>div {
+        font: 400 2.5vw sans-serif;
+        margin: 4vw 0;
+    }
+
+    .orderDetailsCartItemsContainer>div>img {
+        width: 8vw;
+    }
+
+    .orderDetailsCartItemsContainer>div>a {
+        margin: 5vw;
+        width: 30%;
+    }
+
+    .orderDetailsCartItemsContainer>div>span {
+        font: 100 2.5vw sans-serif;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .orderDetailsContainer {
+        padding: 5vmax 2.5vmax;
+        padding-bottom: 0%;
+    }
+
+    .orderDetailsCartItems {
+        padding: 2.5vmax;
+        border-top: 1px solid rgba(0, 0, 0, 0.164);
+    }
+
+    .orderDetailsContainer>p {
+        font: 400 6vw sans-serif;
+    }
+
+    .orderDetailsContainerBox>div {
+        margin: 6vw 0;
+    }
+
+    .orderDetailsContainerBox>div>p {
+        font: 400 4vw sans-serif;
+    }
+
+    .orderDetailsContainerBox>div>span {
+        font: 100 4vw sans-serif;
+    }
+
+    .orderDetailsCartItems>p {
+        font: 400 6vw sans-serif;
+    }
+
+    .orderDetailsCartItemsContainer>div {
+        font: 400 6vw sans-serif;
+        margin: 4vw 0;
+    }
+
+    .orderDetailsCartItemsContainer>div>img {
+        width: 10vw;
+    }
+
+    .orderDetailsCartItemsContainer>div>a {
+        margin: 2vw;
+        width: 30%;
+    }
+
+    .orderDetailsCartItemsContainer>div>span {
+        font: 100 4vw sans-serif;
+    }
+}

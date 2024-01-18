@@ -1,0 +1,107 @@
+.hero {
+    background: linear-gradient(to right, #635dc0, #3027ae);
+    height: 100vmin;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    gap: 3.5vmax;
+    padding-bottom: 12vmax;
+}
+
+.hero>p {
+    font-weight: 300;
+    font-size: 2vmax;
+    font-family: 'Lucida Sans';
+}
+
+.hero>p>span {
+    font-weight: 300;
+    font-size: 2vmax;
+    font-family: 'Lucida Sans';
+    color: #eb4034;
+}
+
+.hero>h1 {
+    font-weight: 600;
+    font-size: 4vmax;
+    text-transform: uppercase;
+    filter: drop-shadow(0 0 10px tomato);
+}
+
+.hero>a {
+    text-decoration: none;
+}
+
+.hero>a>button {
+    background-color: #fff;
+    border: 2px solid #fff;
+    color: black;
+    padding: 1vmax;
+    width: 10vmax;
+    transition: all 0.3s;
+    font: 600 1vmax Cursive;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.hero>a>button:hover {
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: transparent;
+}
+
+.hero>a>button>.mouseIcon {
+    font-size: 1.5vmax;
+}
+
+.hero::after {
+    content: "";
+    width: 100%;
+    height: 100vmin;
+    min-height: 60vh;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+}
+
+.homeHeading {
+    text-align: center;
+    font-size: 2vmax;
+    width: 20vmax;
+    margin: 4vmax auto;
+    padding: 1vmax;
+    border-bottom: 2px solid black;
+    color: #505050;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 80vw;
+    margin: 5vmax auto;
+}
+
+@media (max-width:600px) {
+    .hero>a>button {
+        font-size: 1.5vmax;
+    }
+
+    .hero>a>button>.mouseIcon {
+        font-size: 2vmax;
+    }
+
+    .hero::after {
+        clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+    }
+
+}

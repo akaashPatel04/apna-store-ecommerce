@@ -1,0 +1,97 @@
+.main {
+    margin-top: 12vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vmax;
+    width: 80%;
+    margin-left: 18%;
+    position: relative;
+}
+
+.searchProductContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.searchHeading {
+    width: 25vmax;
+    text-align: center;
+    border-bottom: 2px solid rgb(46, 46, 46);
+    color: #505050;
+    font-size: 2.5vmax;
+}
+
+.viewMoreBtn>button {
+    border-radius: 0%;
+    background-color: tomato;
+    border: none;
+    padding: 1vmax;
+    font: 300 1.1vmax sans-serif;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s;
+}
+
+
+.filterPage {
+    position: fixed;
+    top: 8vmax;
+    left: 0;
+    min-height: 85vh;
+    border-right: 2px solid #a3a3a3;
+    display: flex;
+    width: 18%;
+    padding: 2vmax 1vmax;
+}
+
+.categoryHeading {
+    font-size: 2vmax;
+    font-family: sans-serif;
+}
+
+.categoryBox {
+    padding: 0%;
+}
+
+.categoryBox .category-link {
+    list-style: none;
+    color: rgba(0, 0, 0, 0.61);
+    font: 400 1.25vmax sans-serif;
+    margin: 0.4vmax;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.categoryBox .category-link:hover {
+    color: tomato;
+}
+
+@media (max-width:600px) {
+    .filterPage {
+        height: 100%;
+        padding: 4vmax 1vmax;
+        width: 35%;
+    }
+
+    .categoryHeading {
+        font: 400 3vmax sans-serif;
+    }
+
+    .categoryBox .category-link {
+        font: 400 2.25vmax sans-serif;
+        margin: .75vmax;
+    }
+
+    .main {
+        width: 65%;
+        margin-left: 35%;
+    }
+
+    .searchHeading,
+    .main .viewMoreBtn {
+        width: 15vmax;
+    }
+}

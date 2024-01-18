@@ -1,0 +1,75 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    gap: 1vmax;
+    padding: 2vmax 4vmax;
+}
+
+
+.dashboard>h1 {
+    color: rgba(0, 0, 0, 0.733);
+    font: 300 2rem sans-serif;
+    text-align: center;
+    width: 50%;
+    padding: 1.5rem;
+    margin: auto;
+
+}
+
+.dashboard>h4 {
+    background-color: rgb(87, 145, 253);
+    color: white;
+    font: 300 1.3rem sans-serif;
+    text-align: center;
+    padding: 1.5rem;
+    width: 100%;
+    margin: 0 2rem;
+}
+
+.dashboard>.circles {
+    display: flex;
+    justify-content: center;
+    gap: 5vmax;
+}
+
+.dashboard>.circles>div>a {
+    display: flex;
+    margin-top: 2vmax;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 13vmax;
+    width: 13vmax;
+    border-radius: 50%;
+    background-color: #ffef95;
+    font-size: 1.75vmax;
+    font-weight: 500;
+}
+
+.dashboard>.circles>div:first-child>a {
+    background-color: #f85064;
+    color: #fff;
+}
+
+.dashboard>.circles>div:last-child>a {
+    background-color: rgb(56, 56, 56);
+    color: #fff;
+}
+
+.dashboard>.circles>div>a>span:last-child {
+    font-size: 2vmax;
+}
+
+.chart {
+    width: 80%;
+    margin: 6vmax auto;
+}
+
+
+@media (max-width:600px) {
+    .container {
+        padding: 2vmax;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+}

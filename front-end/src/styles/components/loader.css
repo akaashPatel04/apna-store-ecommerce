@@ -1,0 +1,20 @@
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.spinner {
+    height: 15vmax;
+    width: 15vmax;
+    border-top: 7px solid rgb(83, 83, 83);
+    border-radius: 100%;
+    animation: spin 0.4s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotateZ(360deg);
+    }
+}

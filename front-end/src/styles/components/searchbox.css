@@ -1,0 +1,72 @@
+.searchBox {
+    height: 8vmax;
+    width: 100vw;
+    max-width: 100%;
+    position: fixed;
+    background: linear-gradient(to right, #635dc0, #3027ae);
+    z-index: 5;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBox>input[type="text"] {
+    box-sizing: border-box;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.274);
+    background-color: white;
+    border: none;
+    color: rgba(0, 0, 0, 0.637);
+    padding: 1vmax 2vmax;
+    width: 50%;
+    outline: none;
+    border-radius: 0%;
+    font: 300 1.1vmax cursive;
+    box-sizing: border-box;
+    height: 60%;
+}
+
+/* .searchBox>input[type="submit"] {
+    height: 60%;
+    border-radius: 0%;
+    background-color: tomato;
+    border: none;
+    padding: 1vmax;
+    width: 10%;
+    font: 300 1.1vmax sans-serif;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s;
+}
+
+.searchBox>input[type="submit"]:hover {
+    background-color: rgb(55, 97, 214);
+} */
+
+@media (max-width: 850px) {
+    .searchBox>input[type="text"] {
+        height: 70%;
+        font-size: 2vw;
+    }
+
+    .searchBox>input[type="submit"] {
+        width: 15%;
+        height: 70%;
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .searchBox>input[type="text"] {
+        width: 55%;
+        font-size: 4vw;
+        height: 65%;
+    }
+
+    .searchBox>input[type="submit"] {
+        height: 65%;
+        width: 25%;
+        font-size: 4vw;
+    }
+}

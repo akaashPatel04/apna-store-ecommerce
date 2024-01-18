@@ -1,0 +1,37 @@
+* {
+  margin: 0%;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+}
+
+*::selection {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 157, 140);
+}
+
+.redColor {
+  color: rgb(241, 64, 64) !important
+}
+
+.greenColor {
+  color: rgb(11, 175, 11) !important
+}
+
+.yellowColor {
+  color: rgb(196, 145, 4) !important
+}
+
+.editUserRoleImageAdmin {
+  height: 12vmax;
+  width: 12vmax;
+  object-fit: contain;
+}
+
+.InputFormIcon {
+  position: absolute;
+  left: 0.5vmax;
+  color: #666;
+  font-size: 25px;
+}

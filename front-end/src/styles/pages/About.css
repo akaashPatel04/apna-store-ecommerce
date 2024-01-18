@@ -1,0 +1,478 @@
+.aboutPage {
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+}
+
+.aboutContainer {
+    height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+.aboutContainer>.aboutContact {
+    flex: 35%;
+    height: 100%;
+    background-color: #000;
+    color: #c4c4c4;
+    display: flex;
+    align-items: end;
+    justify-content: left;
+    padding: 2vmax;
+    box-sizing: border-box;
+}
+
+.aboutContainer>.aboutContact>.WEB_HEADING {
+    color: #EB0804;
+    font: 400 3vmax Arial;
+    position: absolute;
+    top: 3vmax;
+    left: 10vmax;
+}
+
+.aboutContainer>.aboutContact>div {
+    margin-left: 4vmax;
+}
+
+.aboutContainer>.aboutContact>div>.top {
+    display: flex;
+    flex-direction: column;
+    margin: 2vmax auto;
+}
+
+.aboutContainer>.aboutContact>div>.top>div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.aboutContainer>.aboutContact>div>.top>div>a {
+    display: flex;
+    font-family: cursive;
+    align-items: center;
+    margin-top: 0vmax;
+}
+
+.aboutContainer>.aboutContact>div>.bottom {
+    display: flex;
+    gap: 1.75vmax;
+    margin: 2vmax auto;
+}
+
+.aboutContainer .aboutPageIcons {
+    font-size: 20px;
+    color: #fff;
+    margin-right: 0.5vmax;
+}
+
+.aboutContainer .aboutPageIconsBottom {
+    font-size: 32px;
+    transition: all 0.4s;
+}
+
+.aboutContainer .aboutPageIconsBottom:hover {
+    transform: scale(140%);
+    color: #EB0804;
+}
+
+.aboutContainer>.imgContainer {
+    height: 32vw;
+    position: absolute;
+    margin-left: 30%;
+    margin-top: 120px;
+    background-color: #E5E5E5;
+    box-shadow: 8px 10px 25px #444444;
+}
+
+.aboutContainer>.imgContainer>img {
+    height: 100%;
+}
+
+.aboutContainer>.aboutMain {
+    height: 100%;
+    flex: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutContainer>.aboutMain>div {
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-size: black;
+    padding: 2vmax;
+    margin-left: 18vmax;
+}
+
+.aboutContainer>.aboutMain>div>.text {
+    display: flex;
+    flex-direction: column;
+    font-size: black;
+}
+
+.aboutContainer>.aboutMain>div>.text>div {
+    display: flex;
+    font-size: 5vmax;
+    font-size: black;
+}
+
+.aboutContainer>.aboutMain>div>.text>div:last-child {
+    margin-left: 2vmax;
+}
+
+.aboutContainer>.aboutMain>div>.text>div>p {
+    font-family: Cambria;
+    font-weight: 600;
+    line-height: 0.85;
+    transition: 0.15s;
+    cursor: default;
+}
+
+.aboutContainer>.aboutMain>div>.text>div>p:hover {
+    transform: translateY(-12px);
+}
+
+.aboutContainer>.aboutMain>div>p {
+    font-size: 1.25vmax;
+    color: #666;
+    font-family: cursive;
+    margin: 2vmax 0;
+}
+
+
+.aboutContainer>.aboutMain>div>a>button {
+    font-size: 1.25vmax;
+    font-weight: 600;
+    color: #fff;
+    background-color: #EB0804;
+    padding: 0.75vmax 2vmax;
+    border: 2px solid #EB0804;
+    transition: 0.25s;
+}
+
+.aboutContainer>.aboutMain>div>a>button:hover {
+    background-color: #fff;
+    color: #EB0804;
+}
+
+@media (max-width:1220px) {
+    .aboutContainer {
+        height: 100vh;
+        display: flex;
+        position: relative;
+    }
+
+    .aboutContainer>.aboutContact {
+        flex: 35%;
+        height: 100%;
+        background-color: #000;
+        color: #c4c4c4;
+        display: flex;
+        align-items: end;
+        justify-content: left;
+        padding: 2vmax;
+        box-sizing: border-box;
+    }
+
+    .aboutContainer>.aboutContact>.WEB_HEADING {
+        font: 400 4vmax Arial;
+        position: absolute;
+        top: 5vmax;
+        left: 12vmax;
+    }
+
+    .aboutContainer>.aboutContact>div {
+        margin-left: 4vmax;
+        margin-bottom: 4vmax;
+    }
+
+    .aboutContainer>.aboutContact>div>.top {
+        margin: 2.5vmax auto;
+    }
+
+    .aboutContainer>.aboutContact>div>.top>div {
+        margin-bottom: 16px;
+    }
+
+    .aboutContainer>.aboutContact>div>.top>div>a {
+        display: flex;
+        align-items: center;
+        margin-top: 0vmax;
+    }
+
+    .aboutContainer>.aboutContact>div>.bottom {
+        display: flex;
+        gap: 1.75vmax;
+        margin: 2vmax auto;
+    }
+
+    .aboutContainer .aboutPageIcons {
+        font-size: 20px;
+        margin-right: 0.5vmax;
+    }
+
+    .aboutContainer>.imgContainer {
+        height: 40vw;
+        margin-left: 22%;
+        margin-top: 180px;
+        box-shadow: 8px 10px 25px #444444;
+    }
+
+    .aboutContainer>.aboutMain {
+        height: 100%;
+        flex: 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .aboutContainer>.aboutMain>div {
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding: 2vmax;
+        margin-left: 14vmax;
+    }
+
+    .aboutContainer>.aboutMain>div>.text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .aboutContainer>.aboutMain>div>.text>div {
+        font-size: 6vmax;
+    }
+
+    .aboutContainer>.aboutMain>div>.text>div:last-child {
+        margin-left: 2.5vmax;
+    }
+
+    .aboutContainer>.aboutMain>div>.text>div>p {
+        line-height: 0.85;
+    }
+
+    .aboutContainer>.aboutMain>div>p {
+        font-size: 1.5vmax;
+        width: 90%;
+        margin: 2vmax 0;
+    }
+
+    .aboutContainer>.aboutMain>div>a>button {
+        font-size: 1.5vmax;
+        padding: 1vmax 3vmax;
+    }
+}
+
+
+@media (max-width:950px) {
+    .aboutContainer {
+        height: 100vh;
+        display: flex;
+        position: relative;
+    }
+
+    .aboutContainer>.aboutContact {
+        flex: 42%;
+        height: 100%;
+        background-color: #000;
+        color: #c4c4c4;
+        display: flex;
+        align-items: end;
+        justify-content: left;
+        padding: 2vmax;
+        box-sizing: border-box;
+    }
+
+    .aboutContainer>.aboutContact>.WEB_HEADING {
+        font: 400 4vmax Arial;
+        position: absolute;
+        top: 10vmax;
+        left: 6vmax;
+    }
+
+    .aboutContainer>.aboutContact>div {
+        margin-left: 4vmax;
+        margin-bottom: 10vmax;
+    }
+
+    .aboutContainer>.aboutContact>div>.top {
+        margin: 2.5vmax auto;
+    }
+
+    .aboutContainer>.aboutContact>div>.top>div {
+        margin-bottom: 16px;
+    }
+
+    .aboutContainer>.aboutContact>div>.top>div>a {
+        display: flex;
+        align-items: center;
+        margin-top: 0vmax;
+    }
+
+    .aboutContainer>.aboutContact>div>.bottom {
+        display: flex;
+        gap: 1.75vmax;
+        margin: 2vmax auto;
+    }
+
+    .aboutContainer .aboutPageIcons {
+        font-size: 20px;
+        margin-right: 0.5vmax;
+    }
+
+    .aboutContainer>.imgContainer {
+        height: 55vh;
+        margin-left: 30%;
+        margin-top: 50px;
+        box-shadow: 8px 10px 25px #444444;
+    }
+
+    .aboutContainer>.aboutMain {
+        height: 100%;
+        flex: 58%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .aboutContainer>.aboutMain>div {
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding: 2vmax;
+        margin-top: 60vmax;
+        margin-left: 2vmax;
+    }
+
+    .aboutContainer>.aboutMain>div>.text>div {
+        font-size: 6vmax;
+    }
+
+    .aboutContainer>.aboutMain>div>p {
+        font-size: 2vmax;
+        width: 100%;
+        line-height: 1.2;
+        margin: 2vmax 0;
+    }
+
+    .aboutContainer>.aboutMain>div>a>button {
+        font-size: 1.5vmax;
+        padding: 1vmax 3vmax;
+    }
+}
+
+@media (max-width:550px) {
+    .aboutContainer {
+        height: 100vh;
+        display: flex;
+        position: relative;
+        flex-direction: column-reverse;
+    }
+
+    .aboutContainer>.aboutContact {
+        flex: 42%;
+        height: 100%;
+        background-color: #000;
+        color: #c4c4c4;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        padding: 2vmax;
+        box-sizing: border-box;
+    }
+
+    .aboutContainer>.aboutContact>.WEB_HEADING {
+        display: none;
+    }
+
+    .aboutContainer>.aboutContact>div {
+        margin-left: 2vmax;
+        margin-bottom: 1vmax;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .aboutContainer>.aboutContact>div>.top {
+        margin: 3vmax auto 0 auto;
+    }
+
+    .aboutContainer>.aboutContact>div>.top>div {
+        text-align: center;
+        margin-bottom: 14px;
+    }
+
+    .aboutContainer>.aboutContact>div>.top>div>a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 0vmax;
+    }
+
+    .aboutContainer>.aboutContact>div>.bottom {
+        display: flex;
+        gap: 2vmax;
+        margin: 1vmax auto;
+    }
+
+    .aboutContainer .aboutPageIcons {
+        font-size: 20px;
+        margin-right: 0.75vmax;
+    }
+
+    .aboutContainer>.imgContainer {
+        height: 32vh;
+        margin-left: 24vw;
+        margin-top: 45vh;
+        box-shadow: 8px -10px 25px #444444;
+        top: 0;
+    }
+
+    .aboutContainer>.aboutMain {
+        height: 100%;
+        flex: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .aboutContainer>.aboutMain>div {
+        max-width: 90%;
+        height: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding: 8vmax 2vmax 0 2vmax;
+    }
+
+    .aboutContainer>.aboutMain>div>.text>div {
+        font-size: 5vmax;
+    }
+
+    .aboutContainer>.aboutMain>div>p {
+        font-size: 2vmax;
+        width: 100%;
+        margin: 1.85vmax 0;
+    }
+
+    .aboutContainer>.aboutMain>div>a>button {
+        font-size: 2vmax;
+        padding: 1vmax 4vmax;
+    }
+}

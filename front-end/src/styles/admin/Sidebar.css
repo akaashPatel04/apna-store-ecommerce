@@ -1,0 +1,36 @@
+.sidebar {
+    border-right: 1px solid #dbdbdb;
+    padding: 6vmax 1vmax;
+    height: fit-content;
+}
+
+.sidebar>a {
+    text-decoration: none;
+}
+
+.sidebar .text {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin: 1vmax 0;
+    font-size: 25px;
+    gap: 0.5vmax;
+    color: #888;
+    transition: 0.3s;
+    padding: 0.25vmax 0.5vmax;
+}
+
+.sidebar .text:hover {
+    color: tomato;
+    background-color: #e7e7e7;
+}
+
+@media (max-width:600px) {
+    .sidebar {
+        display: flex;
+        overflow-x: auto;
+        gap: 3vmax;
+        border-right: none;
+        padding: 8vmax 0.5vmax 0 0.5vmax;
+    }
+}

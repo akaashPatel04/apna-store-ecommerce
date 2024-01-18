@@ -1,0 +1,76 @@
+.productCard {
+    width: 18vmax;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    margin: 2vmax;
+    transition: all 0.4s;
+    padding-bottom: 0.5vmax;
+    color: #000;
+    overflow: hidden;
+    border-radius: 0.4vmax;
+    background: rgb(241, 241, 241);
+    padding: 0.75vmax 1.25vmax;
+}
+
+
+.productCard>img {
+    width: 15vmax;
+    height: 15vmax;
+    object-fit: contain;
+    transition: all 0.4s;
+}
+
+.productCard>img:hover {
+    transform: scale(110%);
+}
+
+.productCard>p {
+    font-size: 1.5vmax;
+    margin: 1vmax 0.5vmax;
+    margin-bottom: 0;
+}
+
+.productCard>div {
+    margin: 0.5vmax;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.productCard>div>span {
+    margin: 0.5vmax;
+    font: 300 0.85vmax cursive;
+}
+
+.productCard>span {
+    font-size: 1.15vmax;
+    margin: 0.5vmax;
+    color: tomato;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+@media (max-width:600px) {
+    .productCard {
+        width: 30vmax;
+        align-items: center;
+    }
+
+    .productCard>img {
+        width: 28vmax;
+    }
+
+    .productCard>p {
+        font-size: 2.5vmax;
+    }
+
+    .productCard>div {
+        margin: 0;
+    }
+
+    .productCard>span {
+        font-size: 1.85vmax;
+    }
+
+}
