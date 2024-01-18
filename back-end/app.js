@@ -37,7 +37,7 @@ app.get('*', (req, res) => {
 export const connectDB = async () => {
     mongoose.connect(process.env.MONGO)
         .then((data) => {
-            console.log(`Connected to data base -- ${data.connection.host}`);
+            console.log(`Connected to data base -- apna DB`);
         })
         .catch((err) => {
             console.log(`Failed to connect with DB ${err}`);

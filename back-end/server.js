@@ -6,5 +6,5 @@ dotenv.config({ path: './back-end/.env' });
 connectDB()
 
 app.listen(process.env.PORT, () => {
-    console.log(`Port running on http://localhost:${process.env.PORT}`);
+    console.log(`Port running on http://apna`);
 })
