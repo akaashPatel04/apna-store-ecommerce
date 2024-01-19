@@ -2,12 +2,13 @@ import axios from "axios";
 import userImage from "../images/Profile.png";
 import ReactStars from "react-rating-stars-component";
 import { toast } from "react-toastify";
+import { server } from "..";
 
 const ReviewCard = ({ review, canDelete, productId }) => {
   const reviewDeleteHandler = async () => {
     try {
       await axios.patch(
-        "http://localhost:5000/product/review",
+        `${server}product/review`,
         { id: productId },
         {
           headers: {
@@ -29,9 +30,7 @@ const ReviewCard = ({ review, canDelete, productId }) => {
           </span>
         )}
         <img
-          src={
-            review.avatar ? `http://localhost:5000/${review.avatar}` : userImage
-          }
+          src={review.avatar ? `${server}/${review.avatar}` : userImage}
           alt="User"
         />
         <p>{review.name}</p>

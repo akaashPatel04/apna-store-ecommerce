@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { signUpStart, signUpSuccess, signUpFail } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { server } from "..";
 
 const UpdateProfile = () => {
   const navigate = useNavigate();
@@ -29,16 +30,12 @@ const UpdateProfile = () => {
       myForm.set("avatar", avatar);
 
       dispatch(signUpStart());
-      const { data } = await axios.put(
-        "http://localhost:5000/user/update",
-        myForm,
-        {
-          headers: {
-            authorization: "Bearer " + localStorage.getItem("token"),
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const { data } = await axios.put(`${server}/user/update`, myForm, {
+        headers: {
+          authorization: "Bearer " + localStorage.getItem("token"),
+          "Content-Type": "multipart/form-data",
+        },
+      });
       dispatch(signUpSuccess(data.user));
       navigate("/profile");
       toast.success("Account details updated succesfully");

@@ -5,6 +5,7 @@ import axios from "axios";
 import Loader from "../components/Loader";
 import { CgMouse } from "react-icons/cg";
 import ErrorPage from "../components/ErrorPage";
+import { server } from "..";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -16,9 +17,7 @@ const Home = () => {
       try {
         setLoading(true);
         setError(null);
-        const { data } = await axios.get(
-          "http://localhost:5000/product/search"
-        );
+        const { data } = await axios.get(`${server}/product/search`);
         setLoading(false);
         setProducts(data.data);
       } catch (error) {

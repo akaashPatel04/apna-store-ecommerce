@@ -7,6 +7,7 @@ import { signUpStart, signUpSuccess, signUpFail } from "../redux/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { MdPerson, MdMail, MdPassword } from "react-icons/md";
+import { server } from "..";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -47,15 +48,11 @@ const Register = () => {
       myForm.set("avatar", avatar);
 
       //API Request
-      const { data } = await axios.post(
-        "http://localhost:5000/user/register",
-        myForm,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const { data } = await axios.post(`${server}/user/register`, myForm, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       dispatch(signUpSuccess(data.user));
       localStorage.setItem("token", data.token);

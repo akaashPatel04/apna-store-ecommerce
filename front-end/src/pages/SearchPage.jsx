@@ -6,6 +6,7 @@ import "../styles/pages/searchPage.css";
 import ErrorPage from "../components/ErrorPage";
 import "../styles/components/searchbox.css";
 import { Heading, VStack } from "@chakra-ui/react";
+import { server } from "..";
 
 const categories = [
   "Electronics",
@@ -30,7 +31,7 @@ const SearchPage = () => {
   const [viewMoreProducts, setViewMoreProducts] = useState(false);
 
   useEffect(() => {
-    const searchQuery = `http://localhost:5000/product/search?searchTerm=${searchTerm}&category=${category}`;
+    const searchQuery = `${server}/product/search?searchTerm=${searchTerm}&category=${category}`;
     const fetchData = async () => {
       try {
         setLoading(true);
@@ -55,7 +56,7 @@ const SearchPage = () => {
     try {
       const noOfProducts = products.length;
       const startIndex = noOfProducts;
-      const searchQuery = `http://localhost:5000/product/search?searchTerm=${searchTerm}&category=${category}&startIndex=${startIndex}`;
+      const searchQuery = `${server}/product/search?searchTerm=${searchTerm}&category=${category}&startIndex=${startIndex}`;
 
       const { data } = await axios.get(searchQuery);
 

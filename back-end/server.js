@@ -53,4 +53,6 @@ export const connectDB = async () => {
 connectDB()
 
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT, () => {
+    console.log(`port connected to ${process.env.PORT}`);
+})

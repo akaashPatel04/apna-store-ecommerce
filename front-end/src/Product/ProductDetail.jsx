@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "../redux/cartSlice";
 import { toast } from "react-toastify";
 import { Heading, Text, VStack } from "@chakra-ui/react";
+import { server } from "..";
 
 const ProductDetail = () => {
   const [reviews, setReviews] = useState([]);
@@ -76,7 +77,7 @@ const ProductDetail = () => {
       try {
         setLoading(true);
         setError(null);
-        const { data } = await axios.get(`http://localhost:5000/product/${id}`);
+        const { data } = await axios.get(`${server}/product/${id}`);
         setProduct(data.data);
         setLoading(false);
       } catch (error) {
@@ -92,9 +93,7 @@ const ProductDetail = () => {
     const fetchReview = async () => {
       try {
         setError(null);
-        const res = await axios.get(
-          `http://localhost:5000/product/review/${id}`
-        );
+        const res = await axios.get(`${server}/product/review/${id}`);
         setReviews(res.data.data);
       } catch (error) {
         console.log(error);
@@ -117,7 +116,7 @@ const ProductDetail = () => {
         return;
       }
       await axios.put(
-        "http://localhost:5000/product/review",
+        `${server}/product/review`,
         {
           productId: product._id,
           comment,
@@ -147,7 +146,7 @@ const ProductDetail = () => {
                 <div>
                   <img
                     className="CarouselImage"
-                    src={`http://localhost:5000/${product.image}`}
+                    src={`${server}/${product.image}`}
                     alt={`Product Image`}
                   />
                 </div>

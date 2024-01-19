@@ -5,6 +5,7 @@ import { Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import "../styles/product/MySingleOrder.css";
 import { useParams } from "react-router-dom";
+import { server } from "..";
 
 const MySingleOrder = () => {
   const [order, setOrder] = useState();
@@ -13,14 +14,11 @@ const MySingleOrder = () => {
   useEffect(() => {
     const fetchOrderDetails = async () => {
       try {
-        const { data } = await axios.get(
-          `http://localhost:5000/order/my/${id}`,
-          {
-            headers: {
-              authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        );
+        const { data } = await axios.get(`${server}/order/my/${id}`, {
+          headers: {
+            authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
         setOrder(data.order);
       } catch (error) {
         toast.error(error.response.data.message || "Something went Wrong");
@@ -83,10 +81,7 @@ const MySingleOrder = () => {
                 order.orderItems.map((item) => (
                   <div key={item.product}>
                     <Link to={`/product/${item.product}`}>
-                      <img
-                        src={`http://localhost:5000/${item.image}`}
-                        alt="Product"
-                      />
+                      <img src={`${server}/${item.image}`} alt="Product" />
                     </Link>{" "}
                     <span>
                       {item.quantity} X ₹{item.price} ={" "}

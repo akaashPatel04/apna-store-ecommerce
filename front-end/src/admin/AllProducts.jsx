@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { getAllProducts } from "../redux/adminSlice";
+import { server } from "..";
 
 const AllProducts = () => {
   const { products } = useSelector((state) => state.admin);
@@ -29,14 +30,11 @@ const AllProducts = () => {
 
   const producDeleteHandler = async (e) => {
     try {
-      const { data } = await axios.delete(
-        `http://localhost:5000/product/${e}`,
-        {
-          headers: {
-            authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      );
+      const { data } = await axios.delete(`${server}/product/${e}`, {
+        headers: {
+          authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
       toast.success("Product Deleted");
       dispatch(getAllProducts(data.data));
     } catch (error) {

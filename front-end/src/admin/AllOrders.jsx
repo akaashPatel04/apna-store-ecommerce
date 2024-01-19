@@ -19,6 +19,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 import { getAllOrders } from "../redux/adminSlice";
+import { server } from "..";
 
 const AllOrders = () => {
   const { orders } = useSelector((state) => state.admin);
@@ -33,7 +34,7 @@ const AllOrders = () => {
   const orderDeleteHandler = async (id) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/order/admin/delete/${id}`,
+        `${server}/order/admin/delete/${id}`,
         {
           headers: {
             authorization: "Bearer " + localStorage.getItem("token"),

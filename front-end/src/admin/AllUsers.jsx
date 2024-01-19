@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { getAllUsers } from "../redux/adminSlice";
+import { server } from "..";
 
 const AllUsers = () => {
   const { users } = useSelector((state) => state.admin);
@@ -26,14 +27,11 @@ const AllUsers = () => {
 
   const userDeleteHandler = async (id) => {
     try {
-      const { data } = await axios.delete(
-        `http://localhost:5000/user/admin/${id}`,
-        {
-          headers: {
-            authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      );
+      const { data } = await axios.delete(`${server}/user/admin/${id}`, {
+        headers: {
+          authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
       toast.success("User Deleted");
       dispatch(getAllUsers(data.data));
     } catch (error) {

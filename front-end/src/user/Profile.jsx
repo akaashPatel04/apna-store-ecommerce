@@ -8,6 +8,7 @@ import { removeUser } from "../redux/userSlice";
 import { resetShippingInfo, resetCart } from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import profile from "../images/Profile.png";
+import { server } from "..";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.user);
@@ -22,7 +23,7 @@ const Profile = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("http://localhost:5000/user/delete", {
+      await axios.delete(`${server}/user/delete`, {
         headers: {
           authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -46,9 +47,7 @@ const Profile = () => {
             <div>
               <h1>My Profile</h1>
               <img
-                src={
-                  user.avatar ? `http://localhost:5000/${user.avatar}` : profile
-                }
+                src={user.avatar ? `${server}/${user.avatar}` : profile}
                 alt="Profile"
               />
               <Link to="/profile/update">Edit Profile</Link>

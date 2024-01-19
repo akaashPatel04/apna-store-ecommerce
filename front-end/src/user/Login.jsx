@@ -7,6 +7,7 @@ import { signUpStart, signUpSuccess, signUpFail } from "../redux/userSlice";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { MdMail, MdPassword } from "react-icons/md";
+import { server } from "..";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -28,10 +29,7 @@ const Login = () => {
     e.preventDefault();
     try {
       dispatch(signUpStart());
-      const { data } = await axios.post(
-        "http://localhost:5000/user/login",
-        formData
-      );
+      const { data } = await axios.post(`${server}/user/login`, formData);
       localStorage.setItem("token", data.token);
       dispatch(signUpSuccess(data.user));
       navigate("/profile");

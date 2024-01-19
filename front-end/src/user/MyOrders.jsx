@@ -18,6 +18,7 @@ import { AiOutlineLink } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ErrorPage from "../components/ErrorPage";
+import { server } from "..";
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -29,7 +30,7 @@ const MyOrders = () => {
       try {
         setLoading(true);
         setError(null);
-        const { data } = await axios.get("http://localhost:5000/order/my", {
+        const { data } = await axios.get(`${server}/order/my`, {
           headers: {
             authorization: "Bearer " + localStorage.getItem("token"),
           },

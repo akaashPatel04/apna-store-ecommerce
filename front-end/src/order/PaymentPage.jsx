@@ -12,6 +12,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { resetCart } from "../redux/cartSlice";
 import axios from "axios";
 import "../styles/product/PaymentPage.css";
+import { server } from "..";
 
 const stripePromise = loadStripe(
   "pk_test_51OXLM2SI05OwvX4jCEtnNAh8i8fs5Kbluxku80HS39H7FvDNwNfikQsiacCpv7wmOFztISiMCgKaU6AswTFeqS1N00K3fWUlpm"
@@ -80,7 +81,7 @@ const CheckOutForm = () => {
       const formData = { ...orderData, paymentInfo };
       const createOrder = async () => {
         try {
-          await axios.post("http://localhost:5000/order/create", formData, {
+          await axios.post(`${server}/order/create`, formData, {
             headers: {
               authorization: "Bearer " + localStorage.getItem("token"),
               "Content-Type": "multipart/form-data",

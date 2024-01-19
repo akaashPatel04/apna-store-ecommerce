@@ -17,6 +17,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { server } from "..";
 
 ChartJS.register(
   CategoryScale,
@@ -50,14 +51,11 @@ const Dashboard = () => {
     //ORDER DATA
     const fetchOrderData = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:5000/order/admin/allOrders",
-          {
-            headers: {
-              authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        );
+        const { data } = await axios.get(`${server}/order/admin/allOrders`, {
+          headers: {
+            authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
         dispatch(getAllOrders(data.orders));
         setTotalAmmount(data.totalAmount);
         setOrderCount(data.count);
@@ -76,14 +74,11 @@ const Dashboard = () => {
     //PRODUCT DATA
     const fetchProductrData = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:5000/product/admin/all",
-          {
-            headers: {
-              authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        );
+        const { data } = await axios.get(`${server}/product/admin/all`, {
+          headers: {
+            authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
         dispatch(getAllProducts(data.data));
         setProductCount(data.count);
       } catch (error) {
@@ -96,14 +91,11 @@ const Dashboard = () => {
     //USER DATA
     const fetchUserData = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:5000/user/admin/all",
-          {
-            headers: {
-              authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        );
+        const { data } = await axios.get(`${server}/user/admin/all`, {
+          headers: {
+            authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
         dispatch(getAllUsers(data.data));
         setUserCount(data.count);
         setUserData(data.data.map((e) => 1));

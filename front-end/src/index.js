@@ -13,3 +13,5 @@ root.render(
     </ChakraProvider>
   </Provider>
 );
+
+export const server = `https://apna-store-49fu.onrender.com`

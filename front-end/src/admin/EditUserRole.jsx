@@ -7,6 +7,7 @@ import { getAllUsers } from "../redux/adminSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import { MdPerson, MdMail } from "react-icons/md";
 import axios from "axios";
+import { server } from "..";
 
 const EditUserRole = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const EditUserRole = () => {
 
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/user/admin/${user._id}`,
+        `${server}/user/admin/${user._id}`,
         { role },
         {
           headers: {
@@ -52,7 +53,7 @@ const EditUserRole = () => {
               <h1>Update User</h1>
               <img
                 className="editUserRoleImageAdmin"
-                src={`http://localhost:5000/${user.avatar}`}
+                src={`${server}/${user.avatar}`}
                 alt=""
               />
               <div>

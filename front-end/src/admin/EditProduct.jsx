@@ -13,6 +13,7 @@ import {
   MdOutlineAccountTree,
   MdOutlineStorage,
 } from "react-icons/md";
+import { server } from "..";
 
 const EditProduct = () => {
   const { products } = useSelector((state) => state.admin);
@@ -55,7 +56,7 @@ const EditProduct = () => {
     myForm.set("avatar", avatar);
 
     try {
-      await axios.put(`http://localhost:5000/product/${id}`, myForm, {
+      await axios.put(`${server}/product/${id}`, myForm, {
         headers: {
           authorization: "Bearer " + localStorage.getItem("token"),
           "Content-Type": "multipart/form-data",

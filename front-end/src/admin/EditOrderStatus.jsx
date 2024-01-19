@@ -7,6 +7,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { Text } from "@chakra-ui/react";
 import { getAllOrders } from "../redux/adminSlice";
+import { server } from "..";
 
 const EditOrderStatus = () => {
   const [status, setStatus] = useState("");
@@ -23,7 +24,7 @@ const EditOrderStatus = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/order/admin/update/${id}`,
+        `${server}/order/admin/update/${id}`,
         { status },
         {
           headers: {
@@ -111,10 +112,7 @@ const EditOrderStatus = () => {
                     <div key={item.product}>
                       <Link to={`/product/${item.product}`}>
                         <div>
-                          <img
-                            src={`http://localhost:5000/${item.image}`}
-                            alt="Product"
-                          />
+                          <img src={`${server}/${item.image}`} alt="Product" />
                           <p>{item.name}</p>
                         </div>
                       </Link>

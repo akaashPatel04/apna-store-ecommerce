@@ -3,6 +3,7 @@ import "../styles/product/orderPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { server } from "..";
 
 const OrderPage = () => {
   const { shippingInfo, cartItem } = useSelector((state) => state.cart);
@@ -36,7 +37,7 @@ const OrderPage = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/payment/process",
+        `${server}/payment/process`,
         {
           amount: totalPrice,
         },
@@ -82,10 +83,7 @@ const OrderPage = () => {
               <div key={item.product}>
                 <Link to={`/product/${item.product}`}>
                   <div>
-                    <img
-                      src={`http://localhost:5000/${item.image}`}
-                      alt="Item Image"
-                    />
+                    <img src={`${server}/${item.image}`} alt="Item Image" />
                     <p>{item.name}</p>
                   </div>
                 </Link>
