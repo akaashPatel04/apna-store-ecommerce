@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "../styles/product/CartItemCard.css";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../redux/cartSlice";
-import { server } from "..";
 
 const CartItemCard = ({ prod }) => {
   const dispatch = useDispatch();
@@ -14,7 +13,7 @@ const CartItemCard = ({ prod }) => {
   };
   return (
     <div className="CartItemCard">
-      <img src={prod.image && `${server}/${prod.image}`} alt="product" />
+      <img src={prod.image && prod.image} alt="product" />
       <div>
         <Link to={`/product/${prod.product}`}>{prod.name}</Link>
         <span>{`Price: ₹${prod.price}`}</span>

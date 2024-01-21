@@ -53,7 +53,7 @@ const EditUserRole = () => {
               <h1>Update User</h1>
               <img
                 className="editUserRoleImageAdmin"
-                src={`${server}/${user.avatar}`}
+                src={user.avatar}
                 alt=""
               />
               <div>

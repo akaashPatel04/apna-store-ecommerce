@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import "../styles/components/productCard.css";
-import { server } from "..";
 
 const ProductCard = ({ product }) => {
   return (
     <Link className="productCard" to={`/product/${product._id}`}>
-      <img src={product.image && `${server}/${product.image}`} alt="product" />
+      <img src={product.image} alt="product" />
       <p>{product.name}</p>
       <div>
         <ReactStars

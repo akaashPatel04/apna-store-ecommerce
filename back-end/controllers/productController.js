@@ -1,21 +1,27 @@
 import productModel from "../models/productModel.js";
+import getDataUri from "../middlewares/dataUri.js"
+import { v2 as cloudinary } from "cloudinary";
 
 
 //Create a Products --Admin
 export const createProduct = async (req, res) => {
     try {
         const { name, description, price, category, stock } = req.body
-        const avatar = req.file
+        const image = getDataUri(req.file)
+
+        const myCloud = await cloudinary.uploader.upload(image.content,
+            { folder: "products" })
+
         const { _id } = req.user
 
-        const product = await productModel.create({
+        await productModel.create({
             name,
             description,
             price,
             category,
             user: _id,
             stock,
-            image: avatar?.path,
+            image: myCloud?.secure_url,
         })
 
         const products = await productModel.find()
@@ -63,7 +69,12 @@ export const getOneProduct = async (req, res) => {
 export const updateProduct = async (req, res) => {
     try {
         const { name, description, price, category, stock } = req.body
-        const avatar = req.file
+
+        const avatar = getDataUri(req.file)
+
+        const myCloud = await cloudinary.uploader.upload(avatar.content,
+            { folder: "products" })
+
 
         const { id } = req.params
 
@@ -74,7 +85,7 @@ export const updateProduct = async (req, res) => {
             category,
             user: req.user._id,
             stock,
-            image: avatar?.path,
+            image: myCloud?.secure_url,
         }, { new: true })
 
         if (!updatedProduct) {

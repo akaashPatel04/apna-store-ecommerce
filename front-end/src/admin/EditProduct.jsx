@@ -14,6 +14,7 @@ import {
   MdOutlineStorage,
 } from "react-icons/md";
 import { server } from "..";
+import Loader from "../components/Loader";
 
 const EditProduct = () => {
   const { products } = useSelector((state) => state.admin);
@@ -29,6 +30,8 @@ const EditProduct = () => {
   const [category, setCategory] = useState(product ? product.category : "");
   const [stock, setStock] = useState(product ? product.stock : 0);
   const [avatar, setImage] = useState(product ? product.image : null);
+
+  const [loading, setLoading] = useState(false);
 
   const categories = [
     "Electronics",
@@ -56,15 +59,18 @@ const EditProduct = () => {
     myForm.set("avatar", avatar);
 
     try {
+      setLoading(true);
       await axios.put(`${server}/product/${id}`, myForm, {
         headers: {
           authorization: "Bearer " + localStorage.getItem("token"),
           "Content-Type": "multipart/form-data",
         },
       });
+      setLoading(false);
       toast.success("Product Updated Successfully");
       navigate("/admin/dashboard");
     } catch (error) {
+      setLoading(false);
       toast.error(error.response.data.message || "Something went wrong");
     }
   };
@@ -72,80 +78,86 @@ const EditProduct = () => {
   return (
     <>
       <div className="container">
-        <SideBar />
-        <div className="newProductContainer">
-          <form
-            className="createProductForm"
-            onSubmit={updateProductSubmitHandler}
-          >
-            <h1>Edit Product</h1>
-            <div>
-              <MdOutlineSpellcheck />
-              <input
-                type="text"
-                placeholder="Product Name"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div>
-              <BsCashCoin />
-              <input
-                type="number"
-                placeholder="Price"
-                required
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-              />
-            </div>
-            <div>
-              <MdOutlineDescription />
-              <textarea
-                placeholder="Product Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                cols="30"
-                rows="1"
-              ></textarea>
-            </div>
-
-            <div>
-              <MdOutlineAccountTree />
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <SideBar />
+            <div className="newProductContainer">
+              <form
+                className="createProductForm"
+                onSubmit={updateProductSubmitHandler}
               >
-                <option value="category">Choose Category</option>
-                {categories.map((cate) => (
-                  <option key={cate} value={cate}>
-                    {cate}
-                  </option>
-                ))}
-              </select>
+                <h1>Edit Product</h1>
+                <div>
+                  <MdOutlineSpellcheck />
+                  <input
+                    type="text"
+                    placeholder="Product Name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <BsCashCoin />
+                  <input
+                    type="number"
+                    placeholder="Price"
+                    required
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <MdOutlineDescription />
+                  <textarea
+                    placeholder="Product Description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    cols="30"
+                    rows="1"
+                  ></textarea>
+                </div>
+
+                <div>
+                  <MdOutlineAccountTree />
+                  <select
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <option value="category">Choose Category</option>
+                    {categories.map((cate) => (
+                      <option key={cate} value={cate}>
+                        {cate}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <MdOutlineStorage />
+                  <input
+                    type="number"
+                    placeholder="Stock"
+                    required
+                    value={stock}
+                    onChange={(e) => setStock(e.target.value)}
+                  />
+                </div>
+                <div id="createProductFormFile">
+                  <input
+                    type="file"
+                    onChange={(e) => setImage(e.target.files[0])}
+                    accept="image/*"
+                  />
+                </div>
+                <Button id="createProductBtn" type="submit">
+                  Update
+                </Button>
+              </form>
             </div>
-            <div>
-              <MdOutlineStorage />
-              <input
-                type="number"
-                placeholder="Stock"
-                required
-                value={stock}
-                onChange={(e) => setStock(e.target.value)}
-              />
-            </div>
-            <div id="createProductFormFile">
-              <input
-                type="file"
-                onChange={(e) => setImage(e.target.files[0])}
-                accept="image/*"
-              />
-            </div>
-            <Button id="createProductBtn" type="submit">
-              Update
-            </Button>
-          </form>
-        </div>
+          </>
+        )}
       </div>
     </>
   );

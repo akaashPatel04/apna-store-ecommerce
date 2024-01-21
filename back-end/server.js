@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import path from 'path'
 import dotenv from 'dotenv';
+import cloudinrary from 'cloudinary'
 dotenv.config({ path: './back-end/.env' });
 
 
@@ -29,15 +30,12 @@ app.use('/order', orderRouter)
 app.use('/payment', paymentRouter)
 
 
-app.use('/back-end/uploads', express.static("back-end/uploads"))
+// app.use(express.static(path.join(__dirname, '/front-end/build')))
 
 
-app.use(express.static(path.join(__dirname, '/front-end/build')))
-
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'front-end', 'build', 'index.html'))
-})
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'front-end', 'build', 'index.html'))
+// })
 
 
 //Data Base connection
@@ -52,6 +50,11 @@ export const connectDB = async () => {
 }
 connectDB()
 
+cloudinrary.v2.config({
+    cloud_name: process.env.CLOUDINARY_CLIENT_NAME,
+    api_key: process.env.CLOUDINARY_CLIENT_API,
+    api_secret: process.env.CLOUDINARY_CLIENT_SECRET,
+})
 
 app.listen(process.env.PORT, () => {
     console.log(`port connected to ${process.env.PORT}`);

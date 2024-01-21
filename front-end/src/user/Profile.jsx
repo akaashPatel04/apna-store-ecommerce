@@ -46,10 +46,7 @@ const Profile = () => {
           <div className="profileContainer">
             <div>
               <h1>My Profile</h1>
-              <img
-                src={user.avatar ? `${server}/${user.avatar}` : profile}
-                alt="Profile"
-              />
+              <img src={user.avatar ? user.avatar : profile} alt="Profile" />
               <Link to="/profile/update">Edit Profile</Link>
             </div>
             <div>

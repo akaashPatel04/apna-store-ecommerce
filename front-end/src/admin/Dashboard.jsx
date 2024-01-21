@@ -18,6 +18,7 @@ import {
   Legend,
 } from "chart.js";
 import { server } from "..";
+import Loader from "../components/Loader";
 
 ChartJS.register(
   CategoryScale,
@@ -34,6 +35,7 @@ const Dashboard = () => {
   const [productCount, setProductCount] = useState("");
   const [userCount, setUserCount] = useState("");
   const [orderCount, setOrderCount] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [date, setDate] = useState([]);
   const [ammount, setAmmount] = useState([]);
@@ -51,6 +53,7 @@ const Dashboard = () => {
     //ORDER DATA
     const fetchOrderData = async () => {
       try {
+        setLoading(true);
         const { data } = await axios.get(`${server}/order/admin/allOrders`, {
           headers: {
             authorization: "Bearer " + localStorage.getItem("token"),
@@ -64,8 +67,10 @@ const Dashboard = () => {
           data.orders.map((e) => new Date(e.paidAt).toLocaleDateString())
         );
         setAmmount(data.orders.map((e) => e.totalPrice));
+        setLoading(false);
       } catch (error) {
         toast.error(error.response.data || "Something went Wrong");
+        setLoading(false);
       }
     };
     fetchOrderData();
@@ -136,35 +141,39 @@ const Dashboard = () => {
   return (
     <div className="container">
       <Sidebar />
-      <div className="dashboard">
-        <h1>Dashboard</h1>
-        <h4>Total Amount ₹ {totalAmmount}</h4>
-        <div className="circles">
-          <div>
-            <Link to={"/admin/products"}>
-              <span>Products</span>
-              <span>{productCount && productCount}</span>
-            </Link>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="dashboard">
+          <h1>Dashboard</h1>
+          <h4>Total Amount ₹ {totalAmmount}</h4>
+          <div className="circles">
+            <div>
+              <Link to={"/admin/products"}>
+                <span>Products</span>
+                <span>{productCount && productCount}</span>
+              </Link>
+            </div>
+            <div>
+              <Link to={"/admin/orders"}>
+                <span>Orders</span>
+                <span>{orderCount && orderCount}</span>
+              </Link>
+            </div>
+            <div>
+              <Link to={"/admin/users"}>
+                <span>Users</span>
+                <span>{userCount && userCount}</span>
+              </Link>
+            </div>
           </div>
-          <div>
-            <Link to={"/admin/orders"}>
-              <span>Orders</span>
-              <span>{orderCount && orderCount}</span>
-            </Link>
+          <div className="chartContainer">
+            <Line className="chart" data={ammountDataChart} />
+            <Line className="chart" data={userDataChart} />
           </div>
-          <div>
-            <Link to={"/admin/users"}>
-              <span>Users</span>
-              <span>{userCount && userCount}</span>
-            </Link>
-          </div>
+          <div className="doughnutContainer"></div>
         </div>
-        <div className="chartContainer">
-          <Line className="chart" data={ammountDataChart} />
-          <Line className="chart" data={userDataChart} />
-        </div>
-        <div className="doughnutContainer"></div>
-      </div>
+      )}
     </div>
   );
 };

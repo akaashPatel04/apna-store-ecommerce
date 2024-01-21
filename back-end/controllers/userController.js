@@ -1,13 +1,19 @@
 import userModel from "../models/userModel.js"
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { v2 as cloudinary } from "cloudinary"
+import getDataUri from "../middlewares/dataUri.js"
 
 
 //Register || POST || Public
 export const Register = async (req, res) => {
     try {
         const { name, email, password } = req.body;
-        const avatar = req.file
+        const avatar = getDataUri(req.file)
+
+        const myCloud = await cloudinary.uploader.upload(avatar.content,
+            { folder: "avatars" })
+
 
         //verify existing User 
         const userExist = await userModel.findOne({ email })
@@ -25,7 +31,7 @@ export const Register = async (req, res) => {
             name,
             email,
             password: hashedPassword,
-            avatar: avatar?.path,
+            avatar: myCloud?.secure_url,
         })
 
         return res.status(201).json({
@@ -90,13 +96,17 @@ export const Login = async (req, res) => {
 export const updateProfile = async (req, res) => {
     try {
         const { id } = req.user
-        const avatar = req.file
+
+        const avatar = getDataUri(req.file)
+
+        const myCloud = await cloudinary.uploader.upload(avatar.content,
+            { folder: "avatars" })
 
         const user = await userModel.findByIdAndUpdate(id,
             {
                 email: req.body.email || req.user.email,
                 name: req.body.name || req.user.name,
-                avatar: avatar?.path || req.user.avatar,
+                avatar: myCloud?.secure_url || req.user.avatar,
                 password: req.user.password
             }
             , { new: true })

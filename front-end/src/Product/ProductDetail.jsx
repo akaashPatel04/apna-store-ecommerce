@@ -146,8 +146,8 @@ const ProductDetail = () => {
                 <div>
                   <img
                     className="CarouselImage"
-                    src={`${server}/${product.image}`}
-                    alt={`Product Image`}
+                    src={product.image}
+                    alt={`Product`}
                   />
                 </div>
                 <div>

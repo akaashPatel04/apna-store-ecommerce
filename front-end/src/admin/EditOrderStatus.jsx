@@ -112,7 +112,7 @@ const EditOrderStatus = () => {
                     <div key={item.product}>
                       <Link to={`/product/${item.product}`}>
                         <div>
-                          <img src={`${server}/${item.image}`} alt="Product" />
+                          <img src={item.image} alt="Product" />
                           <p>{item.name}</p>
                         </div>
                       </Link>

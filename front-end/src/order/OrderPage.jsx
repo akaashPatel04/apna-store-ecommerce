@@ -83,7 +83,7 @@ const OrderPage = () => {
               <div key={item.product}>
                 <Link to={`/product/${item.product}`}>
                   <div>
-                    <img src={`${server}/${item.image}`} alt="Item Image" />
+                    <img src={item.image} alt="Item Image" />
                     <p>{item.name}</p>
                   </div>
                 </Link>

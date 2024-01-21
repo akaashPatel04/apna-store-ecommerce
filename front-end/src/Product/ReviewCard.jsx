@@ -29,10 +29,7 @@ const ReviewCard = ({ review, canDelete, productId }) => {
             Delete
           </span>
         )}
-        <img
-          src={review.avatar ? `${server}/${review.avatar}` : userImage}
-          alt="User"
-        />
+        <img src={review.avatar ? review.avatar : userImage} alt="User" />
         <p>{review.name}</p>
       </div>
       <div>
