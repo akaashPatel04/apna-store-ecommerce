@@ -14,4 +14,4 @@ root.render(
   </Provider>
 );
 
-export const server = `http://localhost:5000`
+export const server = `https://apna-store-49fu.onrender.com/`
