@@ -42,7 +42,7 @@ app.get('*', (req, res) => {
 export const connectDB = async () => {
     mongoose.connect(process.env.MONGO)
         .then((data) => {
-            console.log(`Connected -- apna DB`);
+            console.log(`database connected`);
         })
         .catch((err) => {
             console.log(`Failed to connect with DB ${err}`);

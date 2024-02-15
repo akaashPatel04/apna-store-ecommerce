@@ -69,7 +69,7 @@ const About = () => {
               I weave web wonders, blending front-end flair with back-end magic
               to create seamless online experiences that stand out. --(MERN)
             </p>
-            <a href="#">
+            <a href="https://akash-patel04.vercel.app/">
               <button>Visit Me</button>
             </a>
           </div>

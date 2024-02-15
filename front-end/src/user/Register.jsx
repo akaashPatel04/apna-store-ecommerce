@@ -16,7 +16,6 @@ const Register = () => {
     password: "",
     password2: "",
   });
-  const [avatar, setAvatar] = useState(null);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -45,7 +44,6 @@ const Register = () => {
       myForm.set("name", name);
       myForm.set("email", email);
       myForm.set("password", password);
-      myForm.set("avatar", avatar);
 
       //API Request
       const { data } = await axios.post(`${server}/user/register`, myForm, {
@@ -123,13 +121,6 @@ const Register = () => {
                   value={formData.password2}
                   onChange={onChange}
                   name="password2"
-                />
-              </div>
-              <div id="registerImage">
-                <input
-                  type="file"
-                  onChange={(e) => setAvatar(e.target.files[0])}
-                  accept="image/*"
                 />
               </div>
               {error && <p className="errorMessage">{error}</p>}

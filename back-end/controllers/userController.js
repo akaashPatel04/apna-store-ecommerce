@@ -9,10 +9,6 @@ import getDataUri from "../middlewares/dataUri.js"
 export const Register = async (req, res) => {
     try {
         const { name, email, password } = req.body;
-        const avatar = getDataUri(req.file)
-
-        const myCloud = await cloudinary.uploader.upload(avatar.content,
-            { folder: "avatars" })
 
 
         //verify existing User 
@@ -31,7 +27,6 @@ export const Register = async (req, res) => {
             name,
             email,
             password: hashedPassword,
-            avatar: myCloud?.secure_url,
         })
 
         return res.status(201).json({
@@ -40,7 +35,6 @@ export const Register = async (req, res) => {
             user: {
                 name: createdUser.name,
                 email: createdUser.email,
-                avatar: createdUser.avatar,
                 _id: createdUser._id,
                 role: createdUser.role
             }
